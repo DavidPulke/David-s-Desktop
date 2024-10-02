@@ -158,6 +158,7 @@ if (localStorage.getItem('foldersData') == null) {
         folder2: { position: { left: 0, top: 156 }, name: "Projects" },
         folder3: { position: { left: 0, top: 81 }, name: "Music" },
         folder4: { position: { left: 0, top: 231 }, name: "Games" },
+        folder5: { position: { left: 0, top: 315 }, name: "Guitar" },
     };
     localStorage.setItem('foldersData', JSON.stringify(foldersData));
     setTimeout(() => {
