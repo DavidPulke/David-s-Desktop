@@ -1,0 +1,18 @@
+.songsContainer {
+    width: 100%;
+    text-align: center;
+    gap: 50px;
+}
+
+
+#searchQuery {
+    padding: 7px;
+    width: 80%;
+    direction: rtl;
+}
+
+audio {
+    width: 80%;
+}
+
+/* .results {} */

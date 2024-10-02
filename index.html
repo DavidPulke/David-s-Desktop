@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Desktop</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/projectsFolder.css">
+    <link rel="stylesheet" href="./css/songsStyle.css">
+    <link rel="stylesheet" href="./css/trexGame.css">
+    <link rel="stylesheet" href="./css/guitar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./images/Icon David.jpg">
+
+</head>
+
+<body>
+    <div class="desktop">
+        <div class="folder" id="folder1" data-name="Documents">
+            <input class="folder-name" value="Documents">
+        </div>
+        <div class="folder" id="folder2" data-name="Projects">
+            <input class="folder-name" value="Projects">
+        </div>
+        <div class="folder" id="folder3" data-name="Music">
+            <input class="folder-name" value="Music">
+        </div>
+        <div class="folder" id="folder4" data-name="Games">
+            <input class="folder-name" value="Games">
+        </div>
+        <div class="folder" id="folder5" data-name="Guitar">
+            <input class="folder-name" value="Guitar">
+        </div>
+    </div>
+
+    <div class="t-rex-game">
+        <button class="close-btn closeTrexGame">X</button>
+        <canvas class="trexCanvas"></canvas>
+    </div>
+
+    <!-- Folder Modal -->
+    <div class="folder-window" id="folder-window">
+        <div class="folder-header">
+            <span id="folder-title">Folder</span>
+            <button id="close-btn">X</button>
+        </div>
+        <div class="folder-content" id="folder-content">
+
+        </div>
+    </div>
+
+
+
+
+    <div class="settings"></div>
+
+    <footer class="footer">
+        <div class="left-content">
+
+            <div class="clock-container" id="clock-container" title="">
+                <span id="time"></span>
+                <span id="date"></span>
+            </div>
+            <div class="weather-info">
+            </div>
+        </div>
+        </div>
+        <div class="settingsBtn">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+    </footer>
+    <script src="./scripts/script.js" type="module"></script>
+    <script src="./dino-game/scripts/index.js" type="module"></script>
+</body>
+
+</html>
