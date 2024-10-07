@@ -7,6 +7,7 @@ import GuitarData from "../foldersData/GuitarData.js";
 
 
 
+
 export default document.addEventListener('DOMContentLoaded', () => {
     const folders = document.querySelectorAll('.folder');
 
@@ -44,6 +45,7 @@ function loadFolderName(folderId) {
     const foldersData = JSON.parse(localStorage.getItem('foldersData')) || {};
     return foldersData[folderId] ? foldersData[folderId].name : 'Unnamed Folder';
 }
+
 
 
 function generateFolderContent(folderName) {
@@ -89,24 +91,25 @@ function generateFolderContent(folderName) {
     </div>`
     } else if (folderName === 'Guitar') {
         for (let i in GuitarData.songData) {
+            // בדיקה אם imgUrl ריק או חסר
+            let imgUrl = GuitarData.songData[i].imgUrl ? GuitarData.songData[i].imgUrl : 'images/defaultArtistImage.jpg';
+
             content += `
-            <div id="loading" class="loading hidden">
-    <div class="spinner"></div>
-    <p>טוען תמונות...</p>
-</div>
-
-<div id="songs-container"></div>
-
-
-
-<div id="songs-container">
+        <div id="songs-container">
             <div class="song-card" title="${GuitarData.songData[i].artist} - ${GuitarData.songData[i].song}">
-            <span><a href="${GuitarData.songData[i].chordsUrl}" target="_blank"><img class="songThumbnail" src=${GuitarData.songData[i].imgUrl} alt=${GuitarData.songData[i].artist}></a></span>
-            <p class="songName">${GuitarData.songData[i].song}</p>
-            </div></div>
-        `
+                <span>
+                    <a href="${GuitarData.songData[i].chordsUrl}" target="_blank">
+                        <img class="songThumbnail" src="${imgUrl}" alt="${GuitarData.songData[i].artist}">
+                    </a>
+                </span>
+                <p class="songName">${GuitarData.songData[i].song}</p>
+            </div>
+        </div>
+        `;
         }
     }
+
+
 
     return content;
 }

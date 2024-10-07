@@ -154,7 +154,7 @@ document.querySelectorAll('.folder').forEach(folderElement => {
 // ערכי תיקיות ברירת מחדל
 if (localStorage.getItem('foldersData') == null) {
     const foldersData = {
-        folder1: { position: { left: 2, top: 0 }, name: "Documents" },
+        folder1: { position: { left: 1.5, top: 0 }, name: "Documents" },
         folder2: { position: { left: 0, top: 156 }, name: "Projects" },
         folder3: { position: { left: 0, top: 81 }, name: "Music" },
         folder4: { position: { left: 0, top: 231 }, name: "Games" },
