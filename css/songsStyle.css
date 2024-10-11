@@ -2,6 +2,7 @@
     width: 100%;
     text-align: center;
     gap: 50px;
+    position: relative;
 }
 
 
@@ -16,3 +17,47 @@ audio {
 }
 
 /* .results {} */
+
+.volume-scale {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: rgba(207, 207, 207, 0.623);
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: colorChange 7s infinite;
+
+}
+
+/* אפקט שינוי צבעים */
+@keyframes colorChange {
+    0% {
+        box-shadow: 0 4px 20px rgb(11, 164, 202);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(150, 200, 200, 0.623);
+    }
+
+    70% {
+        box-shadow: 0 4px 20px rgb(238, 35, 35);
+    }
+
+    100% {
+        box-shadow: 0 4px 20px rgb(11, 164, 202);
+    }
+}
+
+.volume-slider {
+    margin-left: 10px;
+    width: 100px;
+    margin: 0 auto;
+    /* ניתן לשנות לפי הצורך */
+}

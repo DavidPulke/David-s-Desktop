@@ -151,6 +151,13 @@ document.querySelectorAll('.folder').forEach(folderElement => {
     new Folder(folderElement);
 });
 
+
+
+
+
+
+
+
 // ערכי תיקיות ברירת מחדל
 if (localStorage.getItem('foldersData') == null) {
     const foldersData = {

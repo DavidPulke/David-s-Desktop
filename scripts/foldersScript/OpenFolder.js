@@ -1,5 +1,5 @@
 import projectsData from "../foldersData/ProjectsData.js";
-import { searchITunes } from "../foldersData/MusicData.js";
+import { searchITunes, volumeScale } from "../foldersData/MusicData.js";
 import startTrexGame from "../../dino-game/scripts/index.js";
 import GuitarData from "../foldersData/GuitarData.js";
 
@@ -57,6 +57,15 @@ function generateFolderContent(folderName) {
     } else if (folderName === 'Music') {
         // יצירת ה-HTML של החיפוש
         content = ` <div class="songsContainer">
+
+        <span class="volume-scale">
+    <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider">
+    <label for="volumeSlider" id="volumeIcon">
+        <i class="fa-solid fa-volume-low"></i>
+    </label>
+</span>
+
+
             <h1 dir="rtl">חיפוש שירים ב-iTunes</h1>
   <input type="text" id="searchQuery" placeholder="הקלד שם שיר...">
   <button id="searchButton">חפש</button>

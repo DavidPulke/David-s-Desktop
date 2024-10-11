@@ -8,10 +8,9 @@ export async function searchITunes() {
     } catch (error) {
         console.log(error);
     }
-
 }
 
-
+export let volumeScale = 0.4;
 
 function displayResults(tracks) {
     const resultsDiv = document.getElementById('results');
@@ -28,12 +27,37 @@ function displayResults(tracks) {
         resultsDiv.appendChild(trackDiv);
     });
 
-
     const audioPlayers = document.querySelectorAll('.audio-player');
     audioPlayers.forEach(player => {
-        player.volume = 0.2;
+        player.volume = volumeScale;
     });
+
+    // הוסף כאן את האזנה לעוצמת השמע
+    initVolumeControl();
 }
 
+function initVolumeControl() {
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeIcon = document.getElementById('volumeIcon');
 
+    if (volumeIcon && volumeSlider) {
+        // עדכון עוצמת השמע ופתיחת האייקון בהתאם לעוצמה
+        volumeSlider.addEventListener('input', () => {
+            const volume = volumeSlider.value / 100; // עוצמת השמע בטווח [0, 1]
+            const audioPlayers = document.querySelectorAll('.audio-player');
 
+            audioPlayers.forEach(player => {
+                player.volume = volume; // עדכון עוצמת השמע של השחקנים
+            });
+
+            // עדכון האייקון בהתאם לעוצמת השמע
+            if (volume === 0) {
+                volumeIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // אייקון של כיבוי
+            } else if (volume > 0 && volume <= 0.5) {
+                volumeIcon.innerHTML = '<i class="fa-solid fa-volume-low"></i>'; // אייקון של עוצמה נמוכה
+            } else {
+                volumeIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>'; // אייקון של עוצמה גבוהה
+            }
+        });
+    }
+}
