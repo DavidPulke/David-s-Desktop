@@ -110,13 +110,19 @@ export default class Folder {
         document.removeEventListener('mouseup', this.dragEnd.bind(this));
         document.removeEventListener('mouseleave', this.dragEnd.bind(this));
 
+
         const foldersData = JSON.parse(localStorage.getItem('foldersData')) || {};
         foldersData[this.id] = {
             ...foldersData[this.id],
             position: { left: this.element.offsetLeft, top: this.element.offsetTop },
         };
         localStorage.setItem('foldersData', JSON.stringify(foldersData));
+
     }
+
+
+
+
 
     saveName() {
         const folderId = this.element.id;

@@ -61,3 +61,9 @@ audio {
     margin: 0 auto;
     /* ניתן לשנות לפי הצורך */
 }
+
+@media(max-width: 700px) {
+    .volume-scale {
+        position: fixed;
+    }
+}

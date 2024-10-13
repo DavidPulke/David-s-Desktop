@@ -40,6 +40,26 @@ html {
     border-radius: 8px;
 }
 
+.folder[data-name="Music"] {
+    background-image: url(../images/musicFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.folder[data-name="Games"] {
+    background-image: url(../images/gamesFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.folder[data-name="Guitar"] {
+    background-image: url(../images/guitarFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+}
+
 .footer {
     height: 50px;
     padding: 20px;
