@@ -65,5 +65,6 @@ audio {
 @media(max-width: 700px) {
     .volume-scale {
         position: fixed;
+        top: 20px;
     }
 }
