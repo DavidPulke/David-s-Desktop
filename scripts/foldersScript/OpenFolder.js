@@ -63,6 +63,10 @@ if (voiceRec) {
     voiceRec.addEventListener('click', startVoiceRecognition);
 }
 
+let trxBtn = document.querySelector("trexBtn");
+if (trxBtn) {
+    trxBtn.addEventListener("click", startTrexGame())
+}
 
 
 
@@ -96,10 +100,17 @@ function generateFolderContent(folderName) {
             </div>`;
         }
     } else if (folderName === 'Games') {
+        setTimeout(() => {
+            if (document.querySelector('.trexBtn')) {
+                document.querySelector('.trexBtn').addEventListener('click', startTrexGame)
+            }
+        }, 0);
         content += `<button class="trexBtn"><img class='dinoImg' src="./dino-game/images/standing_still.png"></button>
-        <div class="t-rex-game">
-            <canvas class="trexCanvas"></canvas>
-        </div>`;
+    <div class="t-rex-game">
+        <canvas class="trexCanvas"></canvas>
+    </div>`
+
+
     } else if (folderName === 'Guitar') {
         for (let i in GuitarData.songData) {
             let imgUrl = GuitarData.songData[i].imgUrl ? GuitarData.songData[i].imgUrl : 'images/defaultArtistImage.jpg';
