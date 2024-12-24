@@ -33,13 +33,13 @@ export default class Folder {
         this.element.ondragstart = () => false;
     }
 
-    createFolder() {
+    /* createFolder() {
         document.addEventListener('keydown', (e) => {
             if (e.key === '0' && e.ctrlKey) { // יצירת תיקייה חדשה בלחיצה על '0' ו-Ctrl
                 this.showFolder();
             }
         });
-    }
+    } */
 
     saveFolderData() {
         const folderData = JSON.parse(localStorage.getItem('foldersData')) || {};
@@ -85,9 +85,9 @@ export default class Folder {
         if (newLeft + folderWidth > screenWidth) newLeft = screenWidth - folderWidth;
         if (newTop + folderHeight > screenHeight) newTop = screenHeight - folderHeight;
 
-        // בדוק אם התיקייה מתנגשת עם תיקייה אחרת
+        // Check overlaping folder
         const overlappingFolder = Array.from(document.querySelectorAll('.folder')).find(otherFolder => {
-            if (otherFolder === this.element) return false; // התעלם מהתיקייה עצמה
+            if (otherFolder === this.element) return false; // ignore this folder
 
             const otherRect = otherFolder.getBoundingClientRect();
             return (
@@ -98,7 +98,7 @@ export default class Folder {
             );
         });
 
-        // אם יש חפיפה, אל תעדכן את המיקום
+        // if overlap dont save the new location of the folder
         if (!overlappingFolder) {
             this.element.style.left = `${newLeft}px`;
             this.element.style.top = `${newTop}px`;
@@ -152,7 +152,7 @@ export default class Folder {
     }
 }
 
-// אתחול כל התיקיות הקיימות
+// init of all the folders
 document.querySelectorAll('.folder').forEach(folderElement => {
     new Folder(folderElement);
 });
@@ -164,7 +164,7 @@ document.querySelectorAll('.folder').forEach(folderElement => {
 
 
 
-// ערכי תיקיות ברירת מחדל
+// default settings of the folders
 if (localStorage.getItem('foldersData') == null) {
     const foldersData = {
         folder1: { position: { left: 1.5, top: 0 }, name: "Documents" },
@@ -172,6 +172,7 @@ if (localStorage.getItem('foldersData') == null) {
         folder3: { position: { left: 0, top: 81 }, name: "Music" },
         folder4: { position: { left: 0, top: 231 }, name: "Games" },
         folder5: { position: { left: 0, top: 315 }, name: "Guitar" },
+        folder6: { position: { left: 0, top: 400 }, name: "VSCode" },
     };
     localStorage.setItem('foldersData', JSON.stringify(foldersData));
     setTimeout(() => {

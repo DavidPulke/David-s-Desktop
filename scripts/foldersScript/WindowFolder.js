@@ -2,7 +2,7 @@ export default class DraggableFolder {
     constructor(element) {
         this.element = element;
         this.dragging = false;
-        this.id = this.element.id; // מזהה ייחודי לכל חלון
+        this.id = this.element.id;
 
         this.init();
     }
@@ -13,7 +13,9 @@ export default class DraggableFolder {
         document.addEventListener('mouseup', this.dragEnd.bind(this));
         document.addEventListener('mousemove', this.drag.bind(this));
 
-        this.loadPosition(); // טוען מיקום שנשמר
+        window.addEventListener('resize', this.centerFolder.bind(this));
+
+        this.loadPosition();
     }
 
     dragStart(event) {
@@ -33,7 +35,7 @@ export default class DraggableFolder {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        // למנוע חפיפה מחוץ למסך
+        // for overlap
         if (newLeft < 0) newLeft = 0;
         if (newTop < 0) newTop = 0;
         if (newLeft + folderWidth > screenWidth) newLeft = screenWidth - folderWidth;
@@ -45,7 +47,7 @@ export default class DraggableFolder {
 
     dragEnd() {
         this.dragging = false;
-        this.savePosition(); // שמירת מיקום לאחר גרירה
+        this.savePosition();
     }
 
     savePosition() {
@@ -62,11 +64,26 @@ export default class DraggableFolder {
         if (folderData[this.id]) {
             this.element.style.left = folderData[this.id].left;
             this.element.style.top = folderData[this.id].top;
+        } else {
+            this.centerFolder();  //  if no position found center the folder
         }
+    }
+
+    centerFolder() {
+        const folderWidth = this.element.offsetWidth;
+        const folderHeight = this.element.offsetHeight;
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        const centerLeft = (screenWidth - folderWidth) / 2;
+        const centerTop = (screenHeight - folderHeight) / 2;
+
+        this.element.style.left = `${centerLeft}px`;
+        this.element.style.top = `${centerTop}px`;
     }
 }
 
-// אתחול האלמנט הניתן לגרירה
+// init settings
 document.addEventListener('DOMContentLoaded', () => {
     const folder = document.getElementById('folder-window');
     new DraggableFolder(folder);

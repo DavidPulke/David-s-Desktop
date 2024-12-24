@@ -1,5 +1,5 @@
 import projectsData from "../foldersData/ProjectsData.js";
-import { searchITunes, volumeScale, startVoiceRecognition } from "../foldersData/MusicData.js";
+import { searchITunes, startVoiceRecognition } from "../foldersData/MusicData.js";
 import startTrexGame from "../../dino-game/scripts/index.js";
 import GuitarData from "../foldersData/GuitarData.js";
 
@@ -14,7 +14,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
     folders.forEach(folder => {
         folder.addEventListener('dblclick', () => {
             const folderId = folder.id;
-            const folderName = folder.dataset.name || loadFolderName(folderId); // טעינת השם המעודכן מה-dataset או מ-localStorage
+            const folderName = folder.dataset.name || loadFolderName(folderId);
             openFolder(folderName);
         });
     });
@@ -27,11 +27,13 @@ export default document.addEventListener('DOMContentLoaded', () => {
         const folderTitle = document.getElementById('folder-title');
         const folderContent = document.getElementById('folder-content');
 
-        folderTitle.textContent = folderName; // שינוי הכותרת לשם התיקייה
-        folderContent.innerHTML = generateFolderContent(folderName); // טעינת תוכן התיקייה לפי השם
+        folderTitle.textContent = folderName; // change folder title
+        folderContent.innerHTML = generateFolderContent(folderName); // loadng the folder data by the name of the folder
 
         folderWindow.style.display = 'block';
         document.getElementById('close-btn').addEventListener('click', closeFolder);
+
+        document.getElementById('full-size-btn').addEventListener('click', fullSizeFolder);
 
 
 
@@ -51,6 +53,27 @@ export default document.addEventListener('DOMContentLoaded', () => {
 function closeFolder() {
     document.getElementById('folder-window').style.display = 'none';
 }
+
+function fullSizeFolder() {
+    const folder = document.getElementById('folder-window');
+
+    if (folder.style.width !== '100%' || folder.style.height !== '100%') {
+        // מקסום התיקייה
+        folder.style.width = '100%';
+        folder.style.height = '100%';
+        folder.style.left = '0';
+        folder.style.top = '0';
+    } else {
+
+        folder.style.width = '50%';
+        folder.style.height = '50%';
+    }
+}
+
+
+
+
+
 
 
 function loadFolderName(folderId) {
@@ -126,6 +149,38 @@ function generateFolderContent(folderName) {
                     </div>
                 </div>`;
         }
+    }
+    else if (folderName === 'VSCode') {
+
+
+        content += `
+                <div class="vs-code-container">
+                <nav>
+            <ul>
+                <li>
+                    <img src="../images/VSCode.png" alt="VSCode icon" title="VSCode icon">
+                </li>
+                <li>
+                    <span>File</span>
+                </li>
+                <li>
+                    <span>Terminal</span>
+                </li>
+                <li>
+                    <span>about</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar">
+            <button class="sidebar-btn">⚙️</button>
+            <button class="sidebar-btn">📂</button>
+            <button class="sidebar-btn">💻</button>
+        </div>
+        <div class="editor-container">
+            <div id="editor"></div>
+        </div>
+        
+    </div>`;
     }
 
     return content;

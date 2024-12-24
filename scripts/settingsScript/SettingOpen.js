@@ -38,7 +38,7 @@ backgroundBtn.setAttribute('accept', 'image/*');  // Accept only image files
 // Attach the change event listener
 backgroundBtn.addEventListener('change', background);
 
-// Append the elements to the footer or anywhere you want on the page
+// Append the elements to the footer or anywhere on the page
 document.querySelector('.footer').appendChild(backgroundLabel);
 document.querySelector('.footer').appendChild(backgroundBtn);
 

@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+[readonly] {
+    cursor: default;
+}
+
 body,
 html {
     height: 100%;
@@ -54,6 +58,14 @@ html {
 
 .folder[data-name="Guitar"] {
     background-image: url(../images/guitarFolder.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+}
+
+.folder[data-name="VSCode"] {
+    background-image: url(../images/VSCode.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -236,16 +248,12 @@ label[for='file-upload'] {
 
 .clock-container:hover::after {
     content: attr(title);
-    /* מציג את תוכן ה-title */
     position: absolute;
     background-color: #333;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
     top: -30px;
-    /* מיקום החלון הצף מתחת */
     left: 10px;
-    /* מרחק מהקצה השמאלי */
     white-space: nowrap;
-    /* מונע קפיצות שורה */
 }

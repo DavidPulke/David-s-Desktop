@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/songsStyle.css">
     <link rel="stylesheet" href="./css/trexGame.css">
     <link rel="stylesheet" href="./css/guitar.css">
+    <link rel="stylesheet" href="./VSCode/VSCode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,19 +21,22 @@
 <body>
     <div class="desktop">
         <div class="folder" id="folder1" data-name="Documents">
-            <input class="folder-name" value="Documents">
+            <input readonly class="folder-name" value="Documents">
         </div>
         <div class="folder" id="folder2" data-name="Projects">
-            <input class="folder-name" value="Projects">
+            <input readonly class="folder-name" value="Projects">
         </div>
         <div class="folder" id="folder3" data-name="Music">
-            <input class="folder-name" value="Music">
+            <input readonly class="folder-name" value="Music">
         </div>
         <div class="folder" id="folder4" data-name="Games">
-            <input class="folder-name" value="Games">
+            <input readonly class="folder-name" value="Games">
         </div>
         <div class="folder" id="folder5" data-name="Guitar">
-            <input class="folder-name" value="Guitar">
+            <input readonly class="folder-name" value="Guitar">
+        </div>
+        <div class="folder" id="folder6" data-name="VSCode">
+            <input readonly class="folder-name" value="VSCode">
         </div>
     </div>
 
@@ -45,7 +49,11 @@
     <div class="folder-window" id="folder-window" data-name="My Folder">
         <div class="folder-header">
             <span id="folder-title">Folder</span>
-            <button id="close-btn">X</button>
+            <div>
+                <button id="full-size-btn">[ ]</button>
+                <button id="close-btn">X</button>
+            </div>
+
         </div>
         <div class="folder-content" id="folder-content">
             <!-- Folder Content -->
@@ -53,7 +61,57 @@
     </div>
 
 
+    <!-- VSCode -->
+    <section id="VSCode">
+        <div class="vs-code-container">
+            <nav>
+                <ul>
+                    <li>
+                        <img src="../images/VSCode.png" alt="VSCode icon" title="VSCode icon">
+                    </li>
+                    <li>
+                        <span>File</span>
+                    </li>
+                    <li>
+                        <span>Terminal</span>
+                    </li>
+                    <li>
+                        <span>about</span>
+                    </li>
+                </ul>
 
+                <div class="actionTools">
+                    <button id="extend"><img width="20px" src="./images/fullScreen.png" alt="fullScreen"
+                            title="fullScreen button"></button>
+                    <button id="close-code-btn">
+                        X
+                    </button>
+                </div>
+            </nav>
+            <div class="sidebar">
+                <div class="btn-wraper">
+                    <button class="sidebar-btn active">
+                        <i class="fa-regular fa-file "></i>
+                    </button>
+                    <button class="sidebar-btn">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    <button class="sidebar-btn">
+                        <i class="fa-solid fa-music"></i>
+                    </button>
+                </div>
+
+                <div class="user">
+                    <button class="sidebar-btn">
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <div id="editor"></div>
+            </div>
+        </div>
+    </section>
 
 
     <div class="settings"></div>
@@ -73,7 +131,9 @@
             <i class="fa-solid fa-gear"></i>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs/loader.js"></script>
     <script src="./scripts/script.js" type="module"></script>
+    <script src="./VSCode/script.js" type="module"></script>
     <script src="./dino-game/scripts/index.js" type="module"></script>
 </body>
 
