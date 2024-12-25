@@ -3,6 +3,8 @@ import { searchITunes, startVoiceRecognition } from "../foldersData/MusicData.js
 import startTrexGame from "../../dino-game/scripts/index.js";
 import GuitarData from "../foldersData/GuitarData.js";
 
+import { openCodeFunc } from "../../VSCode/script.js";
+
 
 
 
@@ -35,6 +37,11 @@ export default document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('full-size-btn').addEventListener('click', fullSizeFolder);
 
+        let openCodeBtn = document.getElementById('openCode')
+        if (openCodeBtn) {
+            openCodeBtn.addEventListener('click', openCodeFunc)
+        }
+
 
 
         folderContent.addEventListener('click', (event) => {
@@ -49,6 +56,8 @@ export default document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+
 
 function closeFolder() {
     document.getElementById('folder-window').style.display = 'none';
@@ -152,35 +161,9 @@ function generateFolderContent(folderName) {
     }
     else if (folderName === 'VSCode') {
 
-
-        content += `
-                <div class="vs-code-container">
-                <nav>
-            <ul>
-                <li>
-                    <img src="../images/VSCode.png" alt="VSCode icon" title="VSCode icon">
-                </li>
-                <li>
-                    <span>File</span>
-                </li>
-                <li>
-                    <span>Terminal</span>
-                </li>
-                <li>
-                    <span>about</span>
-                </li>
-            </ul>
-        </nav>
-        <div class="sidebar">
-            <button class="sidebar-btn">⚙️</button>
-            <button class="sidebar-btn">📂</button>
-            <button class="sidebar-btn">💻</button>
-        </div>
-        <div class="editor-container">
-            <div id="editor"></div>
-        </div>
-        
-    </div>`;
+        content = `
+        <button id="openCode">Open</button>
+        `
     }
 
     return content;

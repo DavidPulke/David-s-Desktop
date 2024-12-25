@@ -16,5 +16,47 @@ require(['vs/editor/editor.main'], function () {
         theme: 'vs-dark',
         automaticLayout: true
     });
-    console.log("Monaco editor loaded");
 });
+
+
+let extend = document.getElementById('extend')
+let codeContainer = document.getElementById('VSCode')
+let closeCode = document.getElementById('close-code-btn')
+let codeNav = document.querySelector('.code-nav')
+let fullScreen = false;
+let openCode = false;
+
+function extendFunc() {
+    if (fullScreen) {
+        codeContainer.classList.remove('fullScreen');
+        fullScreen = false
+    } else {
+        codeContainer.classList.add('fullScreen');
+        fullScreen = true
+    }
+}
+
+export function openCodeFunc() {
+    if (openCode) {
+        // close
+        codeContainer.classList.remove('show');
+        codeContainer.classList.add('hidden');
+        openCode = false
+    } else {
+        // open
+        codeContainer.classList.remove('hidden');
+        codeContainer.classList.add('show');
+        openCode = true
+    }
+}
+
+export function bringToFront() {
+
+    codeContainer.style.zIndex = '1001'
+}
+
+extend.addEventListener('click', extendFunc)
+closeCode.addEventListener('click', openCodeFunc)
+codeNav.addEventListener('dblclick', extendFunc)
+codeContainer.addEventListener('click', bringToFront)
+
