@@ -44,6 +44,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border-right: 1.2px solid #009DD7;
 }
 
 .btn-wraper {
@@ -77,6 +78,11 @@
 .active {
     border-left: 2px solid #fff;
     color: #fff;
+}
+
+.navLinkActive {
+    color: #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .user {
@@ -144,6 +150,27 @@ nav ul span {
 
 nav ul span:hover {
     color: #fff;
+}
+
+/* files */
+
+.filesNav {
+    width: 150px;
+    transition: all 0.5s;
+    background-color: #1b1919d7;
+    border-right: 1.2px solid #009DD7;
+    color: #fff;
+    padding-top: 4rem;
+    padding-left: 10px;
+}
+
+.filesNav .file {
+    display: flex;
+}
+
+.filesNav .file img {
+    width: 20px;
+    height: 15px;
 }
 
 

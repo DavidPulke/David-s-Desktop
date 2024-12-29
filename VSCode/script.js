@@ -22,7 +22,8 @@ require(['vs/editor/editor.main'], function () {
 let extend = document.getElementById('extend')
 let codeContainer = document.getElementById('VSCode')
 let closeCode = document.getElementById('close-code-btn')
-let codeNav = document.querySelector('.code-nav')
+let codeNav = document.querySelector('.code-nav');
+let showFiles = document.querySelector('.filesBtn');
 let fullScreen = false;
 let openCode = false;
 
@@ -51,12 +52,33 @@ export function openCodeFunc() {
 }
 
 export function bringToFront() {
-
     codeContainer.style.zIndex = '1001'
 }
+
+
+
+export function showFilesFunc() {
+    if (document.querySelector('.filesNav').style.width != '0px') {
+        document.querySelector('.filesNav').style.width = '0'
+        showFiles.classList.remove('navLinkActive')
+    } else {
+        document.querySelector('.filesNav').style.width = '150px';
+        showFiles.classList.add('navLinkActive');
+    }
+}
+
+if (document.querySelector('.filesNav').style.width != '0px') {
+    showFiles.classList.add('navLinkActive')
+}
+
+
 
 extend.addEventListener('click', extendFunc)
 closeCode.addEventListener('click', openCodeFunc)
 codeNav.addEventListener('dblclick', extendFunc)
 codeContainer.addEventListener('click', bringToFront)
+showFiles.addEventListener('click', showFilesFunc)
+
+
+
 

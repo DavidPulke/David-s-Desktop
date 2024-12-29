@@ -40,6 +40,13 @@
         </div>
     </div>
 
+    <button id="fullSizeBtn" title="enter full screen">
+        <img width="20px" src="./images/fullScreen.png" alt="fullScreen" title="fullScreen button">
+    </button>
+    <button id="closeFullScreenBtn" title="exit full screen">
+        X
+    </button>
+
     <div class="t-rex-game">
         <button class="close-btn closeTrexGame">X</button>
         <canvas class="trexCanvas"></canvas>
@@ -70,7 +77,7 @@
                         <img src="./images/VSCode.png" alt="VSCode icon" title="VSCode icon">
                     </li>
                     <li>
-                        <span>File</span>
+                        <span class="filesBtn">Files</span>
                     </li>
                     <li>
                         <span>Terminal</span>
@@ -106,6 +113,21 @@
                         <i class="fa-solid fa-gear"></i>
                     </button>
                 </div>
+            </div>
+
+            <div class="filesNav">
+                <span class="file">
+                    <img src="./VSCode/images/html-logo.png" alt="html logo">
+                    <p>index.html</p>
+                </span>
+                <span class="file">
+                    <img src="./VSCode/images/css-logo.webp" alt="css logo">
+                    <p>style.css</p>
+                </span>
+                <span class="file">
+                    <img src="./VSCode/images/js-logo.webp" alt="JavaScript logo">
+                    <p>script.js</p>
+                </span>
             </div>
             <div class="editor-container">
                 <div id="editor"></div>
