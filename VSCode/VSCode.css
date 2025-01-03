@@ -64,6 +64,11 @@
     cursor: pointer;
 }
 
+
+.sidebar-btn.music {
+    padding: 9px 10px;
+}
+
 .sidebar-btn:hover {
     filter: drop-shadow(0 0 6px #ccc);
     color: #fff;

@@ -12,7 +12,7 @@ export default class DraggableFolder {
         header.addEventListener('mousedown', this.dragStart.bind(this));
         document.addEventListener('mouseup', this.dragEnd.bind(this));
         document.addEventListener('mousemove', this.drag.bind(this));
-
+        this.element.addEventListener('click', this.bringToFront.bind(this));
         window.addEventListener('resize', this.centerFolder.bind(this));
 
         this.loadPosition();
@@ -69,6 +69,22 @@ export default class DraggableFolder {
         }
     }
 
+    bringToFront() {
+        //  reset the z-index for all the other folders
+        this.resetZIndexes();
+
+        // high z-index for the chosen folder
+        this.element.style.zIndex = '9999';
+    }
+
+    resetZIndexes() {
+        // reset all folders and VSCode to default z-index
+        const folders = document.querySelectorAll('.folder-window, #VSCode');
+        folders.forEach(folder => {
+            folder.style.zIndex = '10';  // Default for all folders
+        });
+    }
+
     centerFolder() {
         const folderWidth = this.element.offsetWidth;
         const folderHeight = this.element.offsetHeight;
@@ -81,10 +97,25 @@ export default class DraggableFolder {
         this.element.style.left = `${centerLeft}px`;
         this.element.style.top = `${centerTop}px`;
     }
-}
+};
+
+
+
 
 // init settings
 document.addEventListener('DOMContentLoaded', () => {
     const folder = document.getElementById('folder-window');
     new DraggableFolder(folder);
+
+
+    const vsCodeSection = document.getElementById('VSCode');
+    vsCodeSection.addEventListener('click', () => {
+        vsCodeSection.style.zIndex = '9999';  // to make it work on the VSCode folder
+
+        // reset z-index for other folders
+        const folders = document.querySelectorAll('.folder-window');
+        folders.forEach(folder => {
+            folder.style.zIndex = '1';
+        });
+    });
 });

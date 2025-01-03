@@ -19,7 +19,27 @@ export default document.addEventListener('DOMContentLoaded', () => {
             const folderName = folder.dataset.name || loadFolderName(folderId);
             openFolder(folderName);
         });
+
+        // VSCode music button Listener
+        const musicButton = document.querySelector('.sidebar-btn.music');
+        if (musicButton) {
+            musicButton.addEventListener('click', () => {
+                openFolder('Music');
+            });
+        }
+
+        // VSCode Listener
+        const vscodeButton = document.querySelector('.sidebar-btn i.fa-solid.fa-play');
+        if (vscodeButton) {
+            vscodeButton.addEventListener('click', () => {
+                openFolder('VSCode');
+            });
+        }
+
     });
+
+
+
 
 
 
@@ -42,6 +62,9 @@ export default document.addEventListener('DOMContentLoaded', () => {
             openCodeBtn.addEventListener('click', openCodeFunc)
         }
 
+        // update for the clicked / opend folder
+        folderWindow.style.zIndex = 999999;
+
 
 
         folderContent.addEventListener('click', (event) => {
@@ -50,6 +73,15 @@ export default document.addEventListener('DOMContentLoaded', () => {
             }
             if (event.target && event.target.id === 'searchButton') {
                 searchITunes();
+            }
+        });
+
+
+        // update fot all the other folders z-index
+        const otherFolders = document.querySelectorAll('.folder-window');
+        otherFolders.forEach(otherFolder => {
+            if (otherFolder !== folderWindow) {
+                otherFolder.style.zIndex = 1;
             }
         });
     }
@@ -162,7 +194,7 @@ function generateFolderContent(folderName) {
     else if (folderName === 'VSCode') {
 
         content = `
-        <button id="openCode">Open</button>
+        <button id="openCode">open</button>
         `
     }
 

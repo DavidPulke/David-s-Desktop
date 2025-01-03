@@ -275,3 +275,20 @@ label[for='file-upload'] {
     font-size: 18pt;
     visibility: hidden;
 }
+
+
+.folder-window,
+#VSCode {
+    position: absolute;
+    z-index: 1;
+    /* ברירת מחדל */
+    transition: z-index 0.2s ease-in-out;
+}
+
+
+/* תיקיות שנבחרו */
+.folder-window.active,
+#VSCode.active {
+    z-index: 9999;
+    /* ברגע שנבחרו */
+}

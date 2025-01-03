@@ -76,7 +76,7 @@ if (document.querySelector('.filesNav').style.width != '0px') {
 extend.addEventListener('click', extendFunc)
 closeCode.addEventListener('click', openCodeFunc)
 codeNav.addEventListener('dblclick', extendFunc)
-codeContainer.addEventListener('click', bringToFront)
+/* codeContainer.addEventListener('click', bringToFront) */
 showFiles.addEventListener('click', showFilesFunc)
 
 

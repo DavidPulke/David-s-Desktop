@@ -8,6 +8,7 @@ import updateTime from "./timeZone/Date.js"
 import DraggableFolder from "./foldersScript/WindowFolder.js"
 
 
+
 let fullSizeBtn = document.getElementById('fullSizeBtn');
 let closeFullScreenBtn = document.getElementById('closeFullScreenBtn');
 

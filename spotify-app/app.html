@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Music Search</title>
+    <link rel="stylesheet" href="spotify.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>חפש שירים ב-Spotify</h1>
+
+        <!-- כפתור התחברות ל-Spotify -->
+        <button id="connectSpotify">התחבר ל-Spotify</button>
+
+        <div id="searchContainer" style="display:none;">
+            <input type="text" id="searchQuery" placeholder="הקלד שם שיר...">
+            <button id="searchButton">חפש</button>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <iframe src="https://open.spotify.com/embed/track/{track_id}" width="300" height="80" frameborder="0"
+        allowtransparency="true" allow="encrypted-media"></iframe>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
